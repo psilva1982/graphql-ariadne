@@ -1,6 +1,4 @@
-from django.db.models.query import QuerySet
 from bookstore.models import Book, Category, Author
-from django.core import serializers
 
 
 def book(*_, id):
@@ -24,7 +22,8 @@ def books(*_, asc=True, order="title"):
     books = []
     for book in queryset:
         authors = [
-            {"id": author.id, "name": author.name} for author in book.authors.all()
+            {"id": author.id, "name": author.name}
+            for author in book.authors.all()
         ]
         books.append(
             {
