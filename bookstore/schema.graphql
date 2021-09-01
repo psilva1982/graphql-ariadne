@@ -1,0 +1,61 @@
+type Query {
+    categories: [Category]
+    authors: [Author]
+    books(asc: Boolean, order: String): [Book]
+    book(id: String!): Book
+}
+
+type Category {
+    id: ID
+    name: String!
+}
+
+type Author {
+    id: ID
+    name: String!
+}
+
+type Book {
+    id: ID
+    title: String!
+    category: Category!
+    authors: [Author!]! 
+}
+
+type Mutation {
+    NewCategory(input: CategoryInput): CategoryResult 
+    NewAuthor(input: AuthorInput): AuthorResult 
+    NewBook(input: BookInput): BookResult
+}
+
+input CategoryInput {
+    name: String
+}
+
+    type CategoryResult {
+        created: Boolean! 
+        category: Category
+        err: String
+}
+
+input AuthorInput {
+    name: String
+}
+
+    type AuthorResult {
+        created: Boolean! 
+        author: Author
+        err: String
+}
+
+input BookInput {
+    title: String 
+    category: String
+    authors: [String]
+}
+
+type BookResult {
+    created: Boolean!
+    book: Book
+    err: String
+}
