@@ -31,6 +31,10 @@ jobs:
         SECRET_KEY: 'fake'
       run: |
         python manage.py test
+    - name: Coverage Test
+      run: 
+        coverage run --omit='*/venv*' --source='.' manage.py test configuration
+        coverate xml
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
