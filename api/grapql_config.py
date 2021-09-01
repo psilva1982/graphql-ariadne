@@ -1,4 +1,9 @@
-from ariadne import QueryType, make_executable_schema, load_schema_from_path, MutationType
+from ariadne import (
+    QueryType,
+    make_executable_schema,
+    load_schema_from_path,
+    MutationType,
+)
 from bookstore.resolvers import author_resolver, category_resolver, book_resolver
 
 type_defs = [
