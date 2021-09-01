@@ -1,5 +1,5 @@
 name: ci
-on: 
+on:
   pull_request:
     branches:
       - dev
@@ -9,8 +9,8 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.9]
-
+        python-version: [3.9] 
+        
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
@@ -31,3 +31,10 @@ jobs:
         SECRET_KEY: 'fake'
       run: |
         python manage.py test
+    - name: Coverage Test
+      env: 
+        SECRET_KEY: 'fake'    
+      run: 
+        coverage run --omit='*/venv*' --source='.' manage.py test configuration
+        coverage xml
+

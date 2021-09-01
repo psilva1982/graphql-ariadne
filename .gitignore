@@ -338,3 +338,5 @@ pip-selfcheck.json
 
 # postgres/postgis files local developement
 pgdata
+
+.scannerwork
