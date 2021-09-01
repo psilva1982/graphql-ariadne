@@ -24,5 +24,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         flake8_args: --ignore=E501
     - name: Run Tests
+      env: 
+        SECRET_KEY: 'fake'
       run: |
         python manage.py test
