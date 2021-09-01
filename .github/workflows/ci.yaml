@@ -32,6 +32,8 @@ jobs:
       run: |
         python manage.py test
     - name: Coverage Test
+      env: 
+        SECRET_KEY: 'fake'    
       run: 
         coverage run --omit='*/venv*' --source='.' manage.py test configuration
         coverate xml
