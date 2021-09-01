@@ -24,7 +24,7 @@ jobs:
         checkName: 'check-application'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        flake8_args: '--ignore=E501'
+        flake8_args: --ignore=E501
     - name: Run Tests
       run: |
         python manage.py test
