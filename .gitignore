@@ -338,3 +338,6 @@ pip-selfcheck.json
 
 # postgres/postgis files local developement
 pgdata
+
+.scannerwork
+sonar-project.properties
